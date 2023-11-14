@@ -1,0 +1,40 @@
+22:43:49 Acquiring new bigquery connection 'macro_generate_model_yaml'
+22:43:49 Opening a new connection, currently in state init
+22:43:49 version: 2
+
+models:
+  - name: src_ecommerce__orders_item
+    description: ""
+    columns:
+      - name: order_item_id
+        description: ""
+
+      - name: order_id
+        description: ""
+
+      - name: user_id
+        description: ""
+
+      - name: product_id
+        description: ""
+
+      - name: inventory_item_id
+        description: ""
+
+      - name: status
+        description: ""
+
+      - name: created_at
+        description: ""
+
+      - name: shipped_at
+        description: ""
+
+      - name: delivered_at
+        description: ""
+
+      - name: returned_at
+        description: ""
+
+      - name: sale_price
+        description: ""
