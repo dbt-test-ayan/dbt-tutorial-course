@@ -31,6 +31,9 @@ models:
         tests:
           - not_null:
               where: "returned_at IS NOT NULL OR status = 'Complete'"
+          - dbt_utils.expression_is_true:
+              expression: ">= shipped_at"
+              where: "delivered_at IS NOT NULL AND shipped_at IS NOT NULL"
  
 
       - name: shipped_at
@@ -38,7 +41,9 @@ models:
         tests:
           - not_null:
               where: "delivered_at IS NOT NULL OR status = 'Shipped'"
-  
+          - dbt_utils.expression_is_true:
+              expression: ">= created_at"
+              where: "shipped_at IS NOT NULL"
 
       - name: status
         # Look in documents/ecommerce/doc_ecommerce__status.md for this definition
@@ -54,6 +59,9 @@ models:
                 - Shipped
                 - Complete
                 - Returned
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0    
+
 
 
             
